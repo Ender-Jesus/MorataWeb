@@ -61,7 +61,10 @@
                     </div>
                 </div>
                 <div class="p-10">
-                    <form class="flex flex-col gap-6">
+                    <form id="login-form" class="flex flex-col gap-6">
+                        <div id="login-error"
+                            class="hidden text-sm text-red-500 bg-red-50 p-3 rounded-lg text-center border border-red-100">
+                        </div>
                         <div class="flex flex-col gap-2">
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-wider" for="email">Correo
                                 Electrónico</label>
@@ -89,7 +92,7 @@
                                 </button>
                             </div>
                         </div>
-                        <button
+                        <button id="login-btn"
                             class="mt-2 flex w-full items-center justify-center gap-3 bg-button-dark text-accent h-14 rounded-lg font-bold text-base hover:bg-black transition-all shadow-lg group"
                             type="submit">
                             <span>Iniciar Sesión</span>
@@ -119,19 +122,103 @@
                 Solutions. Diseñado para Brillar.</p>
         </footer>
     </div>
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        // ── Supabase config ─────────────────────────────────────────────────────
+        const SUPABASE_URL = 'https://tmjdzzgsizdeegzhbiju.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtamR6emdzaXpkZWVnemhiaWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyMDI2OTAsImV4cCI6MjA4Nzc3ODY5MH0.EUxWDHsyYsv9QrX9WrevPS8T78FIQvCdWTM-24U4ANM';
+        const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
         document.addEventListener('DOMContentLoaded', function () {
-            const btn = document.getElementById('toggle-password');
-            const inp = document.getElementById('password');
-            if (btn && inp) {
-                btn.addEventListener('click', function () {
-                    const isHidden = inp.type === 'password';
-                    inp.type = isHidden ? 'text' : 'password';
+            // ── Toggle visibilidad de contraseña ─────────────────────────────────
+            const toggleBtn = document.getElementById('toggle-password');
+            const passInput = document.getElementById('password');
+            if (toggleBtn && passInput) {
+                toggleBtn.addEventListener('click', function () {
+                    const isHidden = passInput.type === 'password';
+                    passInput.type = isHidden ? 'text' : 'password';
                     this.querySelector('span').textContent = isHidden ? 'visibility_off' : 'visibility';
                 });
             }
+
+            // ── Lógica de Login ──────────────────────────────────────────────────
+            const form = document.getElementById('login-form');
+            const errorDiv = document.getElementById('login-error');
+            const loginBtn = document.getElementById('login-btn');
+
+            function showError(msg) {
+                errorDiv.textContent = msg;
+                errorDiv.classList.remove('hidden');
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            function hideError() {
+                errorDiv.textContent = '';
+                errorDiv.classList.add('hidden');
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                hideError();
+
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+
+                // Deshabilitar el botón mientras se verifica
+                loginBtn.disabled = true;
+                loginBtn.innerHTML = '<span class="material-symbols-outlined" style="animation:spin 1s linear infinite">progress_activity</span>&nbsp;Verificando...';
+
+                try {
+                    // 1. Buscar el cliente por correo electrónico
+                    const { data: cliente, error: emailError } = await db
+                        .from('cliente')
+                        .select('*')
+                        .eq('email', email)
+                        .eq('estado', true)
+                        .single();
+
+                    if (emailError || !cliente) {
+                        showError('No existe una cuenta con ese correo electrónico.');
+                        return;
+                    }
+
+                    // 2. Verificar que la contraseña coincide con la de esa fila
+                    if (cliente.password !== password) {
+                        showError('La contraseña ingresada es incorrecta. Por favor, intenta de nuevo.');
+                        return;
+                    }
+
+                    const data = cliente;
+
+                    // Guardar sesión en localStorage
+                    const sessionData = {
+                        id: data.id_cliente,
+                        nombres: data.nombres,
+                        apellidos: data.apellidos,
+                        email: data.email
+                    };
+                    localStorage.setItem('lumina_session', JSON.stringify(sessionData));
+
+                    // Redirigir al inicio
+                    window.location.href = 'index.html';
+
+                } catch (err) {
+                    console.error('Error en login:', err);
+                    showError('Ocurrió un error al iniciar sesión. Por favor, intenta de nuevo.');
+                } finally {
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<span>Iniciar Sesión</span><span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>';
+                }
+            });
         });
     </script>
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </body>
 
 </html>

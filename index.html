@@ -74,10 +74,8 @@
                         <span id="cart-badge" style="display: none;"
                             class="absolute -top-1.5 -right-2 flex min-w-[18px] h-[18px] items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-primary transition-transform duration-200">0</span>
                     </a>
-                    <a href="login.html"
-                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-yellow-400 transition-colors shadow-lg shadow-black/20">
-                        <span class="truncate">Login</span>
-                    </a>
+                    <!-- Área de autenticación: se rellena dinámicamente por JS -->
+                    <div id="auth-area"></div>
                 </div>
             </div>
         </header>
@@ -225,6 +223,63 @@
     <script src="js/carrito.js"></script>
     <script src="js/api.js"></script>
     <script src="js/app.js"></script>
+    <script>
+            // ── Gestión de sesión de usuario ────────────────────────────────────────
+            (function () {
+                const authArea = document.getElementById('auth-area');
+                if (!authArea) return;
+
+                const sessionRaw = localStorage.getItem('lumina_session');
+
+                if (!sessionRaw) {
+                    // No hay sesión: mostrar botón de Login
+                    authArea.innerHTML = `
+                    <a href="login.html"
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-yellow-400 transition-colors shadow-lg shadow-black/20">
+                        <span class="truncate">Login</span>
+                    </a>`;
+                    return;
+                }
+
+                // Hay sesión: mostrar avatar con iniciales
+                let session;
+                try { session = JSON.parse(sessionRaw); } catch (e) { localStorage.removeItem('lumina_session'); return; }
+
+                // Calcular iniciales: primer nombre + primer apellido
+                const primerNombre = (session.nombres || '').split(' ')[0];
+                const primerApellido = (session.apellidos || '').split(' ')[0];
+                const iniciales = (
+                    (primerNombre[0] || '') + (primerApellido[0] || '')
+                ).toUpperCase();
+
+                authArea.innerHTML = `
+                <div class="relative group" id="user-avatar-wrapper">
+                    <button id="user-avatar"
+                        class="flex items-center justify-center size-10 rounded-full bg-accent text-primary font-black text-sm cursor-pointer select-none border-2 border-transparent hover:border-white transition-all shadow-lg"
+                        title="${primerNombre} ${primerApellido}">
+                        ${iniciales}
+                    </button>
+                    <!-- Dropdown de usuario -->
+                    <div class="absolute right-0 top-12 w-48 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="px-4 py-3 border-b border-slate-100">
+                            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Sesión iniciada como</p>
+                            <p class="text-sm font-bold text-text-main truncate mt-0.5">${primerNombre} ${primerApellido}</p>
+                        </div>
+                        <button id="logout-btn"
+                            class="w-full flex items-center gap-2 px-4 py-3 text-sm font-semibold text-red-500 hover:bg-red-50 transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">logout</span>
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>`;
+
+                // Evento de logout
+                document.getElementById('logout-btn').addEventListener('click', function () {
+                    localStorage.removeItem('lumina_session');
+                    window.location.reload();
+                });
+            })();
+    </script>
 </body>
 
 </html>
