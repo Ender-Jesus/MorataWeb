@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumina - Crear Cuenta</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#343BA8",
+                        "accent": "#FFD700",
+                        "background-light": "#FFFFFF",
+                        "text-main": "#1e1e1e",
+                        "text-muted": "#6b7280",
+                        "button-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-white font-display antialiased min-h-screen flex flex-col electrical-pattern-grid text-text-main">
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex items-center justify-between whitespace-nowrap bg-primary px-10 py-4 text-white shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center text-accent">
+                    <span class="material-symbols-outlined !text-[28px]">lightbulb</span>
+                </div>
+                <h2 class="text-white text-xl font-bold tracking-tight">Lumina</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="text-white hover:text-accent transition-colors text-sm font-medium" href="index.html">Volver a
+                    la Tienda</a>
+            </div>
+        </header>
+        <main class="flex flex-1 items-center justify-center p-6">
+            <div
+                class="w-full max-w-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100 my-8">
+                <div class="bg-primary p-10 text-center flex flex-col items-center gap-4">
+                    <div
+                        class="size-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-accent">
+                        <span class="material-symbols-outlined !text-[36px]">person_add</span>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-2xl font-bold tracking-tight mb-1">Crear Cuenta</h1>
+                        <p class="text-white/80 text-sm font-medium">Únete a la familia Lumina</p>
+                    </div>
+                </div>
+                <div class="p-10">
+                    <form id="register-form" class="flex flex-col gap-5">
+                        <div id="register-error"
+                            class="hidden text-sm text-red-500 bg-red-50 p-3 rounded-lg text-center border border-red-100">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                    for="primer_nombre">Primer Nombre *</label>
+                                <div class="relative">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">person</span>
+                                    <input
+                                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                        id="primer_nombre" placeholder="Ej. Juan" required="" type="text" />
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                    for="segundo_nombre">Segundo Nombre <span
+                                        class="text-[10px] lowercase normal-case text-slate-400 ml-1">(Opcional)</span></label>
+                                <div class="relative">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">person</span>
+                                    <input
+                                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                        id="segundo_nombre" placeholder="Ej. Carlos" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                    for="primer_apellido">Primer Apellido *</label>
+                                <div class="relative">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">badge</span>
+                                    <input
+                                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                        id="primer_apellido" placeholder="Ej. Pérez" required="" type="text" />
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                    for="segundo_apellido">Segundo Apellido <span
+                                        class="text-[10px] lowercase normal-case text-slate-400 ml-1">(Opcional)</span></label>
+                                <div class="relative">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">badge</span>
+                                    <input
+                                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                        id="segundo_apellido" placeholder="Ej. Gómez" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                for="documento">Documento de Identidad *</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">badge</span>
+                                <input
+                                    class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="documento" placeholder="Ej. 12345678" required="" type="text" pattern="[0-9]*"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider" for="email">Correo
+                                Electrónico *</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">mail</span>
+                                <input
+                                    class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="email" placeholder="juan@ejemplo.com" required="" type="email" />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                for="telefono">Número de Teléfono *</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">call</span>
+                                <input
+                                    class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="telefono" placeholder="Ej. 1234567890" required="" type="tel" pattern="[0-9]*"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                for="direccion">Dirección *</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-3 text-slate-400 text-[20px]">location_on</span>
+                                <textarea
+                                    class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300 resize-none h-24"
+                                    id="direccion" placeholder="Ingresa tu dirección completa" required=""></textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                for="password">Contraseña *</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
+                                <input
+                                    class="w-full pl-10 pr-12 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="password" placeholder="••••••••" required="" type="password" />
+                                <button id="toggle-password"
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                for="confirmar_password">Confirmar Contraseña *</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
+                                <input
+                                    class="w-full pl-10 pr-12 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="confirmar_password" placeholder="••••••••" required="" type="password" />
+                                <button id="toggle-confirmar-password"
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            class="mt-4 flex w-full items-center justify-center gap-3 bg-button-dark text-accent h-14 rounded-lg font-bold text-base hover:bg-black transition-all shadow-lg group"
+                            type="submit">
+                            <span>Crear Cuenta</span>
+                            <span
+                                class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                        <div class="flex flex-col gap-4 text-center mt-2">
+                            <div class="flex items-center gap-4 py-2">
+                                <div class="h-px flex-1 bg-slate-100"></div>
+                                <span class="text-xs text-slate-400 font-medium uppercase tracking-widest">o</span>
+                                <div class="h-px flex-1 bg-slate-100"></div>
+                            </div>
+                            <p class="text-text-muted text-sm">
+                                ¿Ya tienes una cuenta?
+                                <a class="text-primary font-bold hover:underline ml-1" href="login.html">Iniciar
+                                    Sesión</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer class="py-10 px-10 text-center">
+            <p class="text-text-muted text-[10px] uppercase tracking-[0.2em] font-bold">© 2024 Lumina Lighting
+                Solutions. Diseñado para Brillar.</p>
+        </footer>
+    </div>
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // ── Supabase config ──────────────────────────────────────────────────
+        const SUPABASE_URL = 'https://tmjdzzgsizdeegzhbiju.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtamR6emdzaXpkZWVnemhiaWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyMDI2OTAsImV4cCI6MjA4Nzc3ODY5MH0.EUxWDHsyYsv9QrX9WrevPS8T78FIQvCdWTM-24U4ANM';
+        const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // ── Toggle visibilidad contraseña ────────────────────────────────────
+        function setupToggle(btnId, inputId) {
+            const btn = document.getElementById(btnId);
+            const inp = document.getElementById(inputId);
+            if (!btn || !inp) return;
+            btn.addEventListener('click', function () {
+                const isHidden = inp.type === 'password';
+                inp.type = isHidden ? 'text' : 'password';
+                this.querySelector('span').textContent = isHidden ? 'visibility_off' : 'visibility';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setupToggle('toggle-password', 'password');
+            setupToggle('toggle-confirmar-password', 'confirmar_password');
+
+            // ── Registro ──────────────────────────────────────────────────────
+            const form = document.getElementById('register-form');
+            const errorDiv = document.getElementById('register-error');
+
+            function showError(msg) {
+                errorDiv.textContent = msg;
+                errorDiv.classList.remove('hidden');
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            function hideError() {
+                errorDiv.textContent = '';
+                errorDiv.classList.add('hidden');
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                hideError();
+
+                const primerNombre = document.getElementById('primer_nombre').value.trim();
+                const segundoNombre = document.getElementById('segundo_nombre').value.trim();
+                const primerApe = document.getElementById('primer_apellido').value.trim();
+                const segundoApe = document.getElementById('segundo_apellido').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const telefono = document.getElementById('telefono').value.trim();
+                const direccion = document.getElementById('direccion').value.trim();
+                const documento = document.getElementById('documento').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPass = document.getElementById('confirmar_password').value;
+
+                // Validar contraseñas
+                if (password !== confirmPass) {
+                    showError('Las contraseñas no coinciden. Por favor, verifícalas.');
+                    return;
+                }
+
+                // Construir nombres y apellidos
+                const nombres = [primerNombre, segundoNombre].filter(Boolean).join(' ');
+                const apellidos = [primerApe, segundoApe].filter(Boolean).join(' ');
+
+                const clientData = {
+                    nombres,
+                    apellidos,
+                    email,
+                    telefono,
+                    direccion,
+                    documento,
+                    fecha_registro: new Date().toISOString(),
+                    estado: true
+                };
+
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="material-symbols-outlined" style="animation:spin 1s linear infinite">progress_activity</span>&nbsp;Guardando...';
+
+                try {
+                    const { data, error } = await db.from('cliente').insert([clientData]).select();
+                    if (error) throw error;
+                    console.log('Cliente registrado:', data);
+                    alert('¡Registro exitoso! Ya puedes iniciar sesión.');
+                    window.location.href = 'login.html';
+                } catch (err) {
+                    console.error('Error Supabase:', err);
+                    showError('Error al registrar: ' + (err.message || 'Intenta de nuevo.'));
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Crear Cuenta</span><span class="material-symbols-outlined text-[20px]">arrow_forward</span>';
+                }
+            });
+        });
+    </script>
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</body>
+
+</html>

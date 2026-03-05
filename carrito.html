@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumina - Carrito de Compras</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#343ba8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#14141e",
+                        "accent-yellow": "#fbbf24",
+                        "dark-btn": "#1a1a1a"
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="relative flex h-auto min-h-screen w-full flex-col wiring-pattern group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 bg-primary px-10 py-4 text-white z-20 sticky top-0">
+                <div class="flex items-center gap-8 flex-1">
+                    <div class="flex items-center gap-4">
+                        <div class="size-8 flex items-center justify-center bg-white text-primary rounded-lg">
+                            <span class="material-symbols-outlined">lightbulb</span>
+                        </div>
+                        <h2 class="text-xl font-extrabold leading-tight tracking-tight uppercase">Lumina</h2>
+                    </div>
+                    <label class="flex flex-col min-w-80 h-11 flex-1 max-w-xl">
+                        <div class="flex w-full flex-1 items-stretch rounded-xl h-full overflow-hidden">
+                            <div class="text-slate-400 flex border-none bg-white items-center justify-center pl-4">
+                                <span class="material-symbols-outlined">search</span>
+                            </div>
+                            <input
+                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-slate-900 focus:outline-0 focus:ring-0 border-none bg-white placeholder:text-slate-400 px-4 pl-2 text-base font-normal"
+                                placeholder="Buscar lámparas, bombillas, accesorios..." value="" />
+                        </div>
+                    </label>
+                </div>
+                <div class="flex flex-1 justify-end gap-8 items-center">
+                    <nav class="flex items-center gap-9">
+                        <a class="text-white hover:text-accent-yellow transition-colors text-sm font-semibold"
+                            href="#">Lámparas</a>
+                        <a class="text-white hover:text-accent-yellow transition-colors text-sm font-semibold"
+                            href="#">Bombillas</a>
+                        <a class="text-white hover:text-accent-yellow transition-colors text-sm font-semibold"
+                            href="#">Accesorios</a>
+                        <a class="text-accent-yellow text-sm font-bold" href="#">Oferta</a>
+                    </nav>
+                    <div class="flex gap-3">
+                        <button
+                            class="flex items-center justify-center rounded-full h-10 w-10 bg-white/10 text-white hover:bg-white/20 transition-all">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                        </button>
+                        <button
+                            class="flex items-center justify-center rounded-full h-10 w-10 bg-white/10 text-white hover:bg-white/20 transition-all">
+                            <span class="material-symbols-outlined">person</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-grow flex items-center justify-center w-full relative z-10 px-10 py-12">
+                <div class="max-w-7xl mx-auto w-full">
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <a class="text-slate-500 text-sm font-semibold hover:text-primary transition-colors"
+                            href="index.html">Inicio</a>
+                        <span class="text-slate-400 text-sm font-medium">/</span>
+                        <span class="text-primary text-sm font-bold">Carrito de Compras</span>
+                    </div>
+                    <div class="flex flex-col lg:flex-row gap-10">
+                        <div class="flex-1 flex flex-col gap-6">
+                            <h1 class="text-3xl font-black text-slate-900 leading-tight">Tu Carrito <span
+                                    class="text-primary font-medium text-lg ml-2">(3 artículos)</span></h1>
+                            <div
+                                class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20">
+                                <div class="bg-white p-1 rounded-full shrink-0">
+                                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAJe0YiUzXFmHmusqhtwzqRYoGLEE9i0m2EImjqvLJI0SDv6IIdguqJEBgKphkSbg1XPTHdpZmi4RguJ0hxCfEQM12cKOhaF6Dbb4DWBL8Cl1tReZLAUdJuq4h5tQ6gNU7ruIK0Kuggpz7PIJPBDkY1WAr1chR9vaeFRU4FOv_IER7wPZuH2YV_hxIWGF8JYHGciGo1LFN_Lvg1W2LHdRlOxRzFxKiKsVDEVA5RulomyxEOxDC1VmIpirDJCL0p3zeeyAMTh0us-I");'>
+                                    </div>
+                                </div>
+                                <div class="flex flex-1 flex-col justify-center">
+                                    <p class="text-white text-lg font-bold">Lámpara de Pie Nórdica Minimalista</p>
+                                    <p class="text-white/70 text-xs tracking-wide uppercase font-medium">Acabado Negro
+                                        Mate • SKU: LUX-001</p>
+                                </div>
+                                <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12">
+                                    <button class="hover:text-accent-yellow transition-colors"><span
+                                            class="material-symbols-outlined text-xl">remove</span></button>
+                                    <span class="text-lg font-bold w-6 text-center">1</span>
+                                    <button class="hover:text-accent-yellow transition-colors"><span
+                                            class="material-symbols-outlined text-xl">add</span></button>
+                                </div>
+                                <div class="text-right pr-6">
+                                    <p class="text-xl font-black">$189.00</p>
+                                </div>
+                                <button class="text-white/40 hover:text-white transition-colors pr-4">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                            <div
+                                class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20">
+                                <div class="bg-white p-1 rounded-full shrink-0">
+                                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzZy6NFgMuIcARGrORqImjtWxeJo9AIHtyj6mMLSsMKPw825Cji2tym1HQREKLC4S5Rg01Zv9AFqO1WfbFCw1hk1Wo_L9hjSTHln3DI-t-HbbGdX0e-UjJAi5zOdGzX6yD0FELzh6wcGVZRkX9f-1Kv0BP6h2QGQrXxMry2OymCdZJgqBoVyLqGtt7i0CQaJuBWWGK-iRgbuQBz7Bl9749nwEXeSfTpnaIkpE5pS902p7KRsf8C15D-5cbDTwmInBvD3iu-7P0GEs");'>
+                                    </div>
+                                </div>
+                                <div class="flex flex-1 flex-col justify-center">
+                                    <p class="text-white text-lg font-bold">Bombilla Vintage Edison G95</p>
+                                    <p class="text-white/70 text-xs tracking-wide uppercase font-medium">Luz Cálida
+                                        Ámbar • SKU: LUX-E95</p>
+                                </div>
+                                <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12">
+                                    <button class="hover:text-accent-yellow transition-colors"><span
+                                            class="material-symbols-outlined text-xl">remove</span></button>
+                                    <span class="text-lg font-bold w-6 text-center">4</span>
+                                    <button class="hover:text-accent-yellow transition-colors"><span
+                                            class="material-symbols-outlined text-xl">add</span></button>
+                                </div>
+                                <div class="text-right pr-6">
+                                    <p class="text-xl font-black">$48.00</p>
+                                </div>
+                                <button class="text-white/40 hover:text-white transition-colors pr-4">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                            <div
+                                class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20">
+                                <div class="bg-white p-1 rounded-full shrink-0">
+                                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeIICEYPES9MipjfPilna9PuWxkCvMQFIZ1uvgeD73TTB3gKcmjVVD0ofv9n3lxUxnvKYCPfk7eKyE9UcibKO_mhdf-zSu8_KHLDVJ-4NivdIyKrBTkTP-t9YCYKw_x__oEpnzowVeoCS_BRvkRaFVan25KbDOnwYoJExtJsuJlui22skq5x0z8pvDjZ7oUY1qoEj0axN2juVMPM7CtCY0-WJfaCCvJsb0SiOkXNsWu5Si--_fNZ9WFcYSv-T2jZJxHp6GZbwymtk");'>
+                                    </div>
+                                </div>
+                                <div class="flex flex-1 flex-col justify-center">
+                                    <p class="text-white text-lg font-bold">Lámpara Colgante Aura Glass</p>
+                                    <p class="text-white/70 text-xs tracking-wide uppercase font-medium">Acabado Latón
+                                        Cepillado • SKU: LUX-A12</p>
+                                </div>
+                                <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12">
+                                    <button class="hover:text-accent-yellow transition-colors"><span
+                                            class="material-symbols-outlined text-xl">remove</span></button>
+                                    <span class="text-lg font-bold w-6 text-center">2</span>
+                                    <button class="hover:text-accent-yellow transition-colors"><span
+                                            class="material-symbols-outlined text-xl">add</span></button>
+                                </div>
+                                <div class="text-right pr-6">
+                                    <p class="text-xl font-black">$310.00</p>
+                                </div>
+                                <button class="text-white/40 hover:text-white transition-colors pr-4">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <a href="index.html"
+                                    class="flex items-center gap-2 text-primary font-bold hover:underline">
+                                    <span class="material-symbols-outlined">arrow_back</span>
+                                    Seguir Comprando
+                                </a>
+                            </div>
+                        </div>
+                        <aside class="w-full lg:w-[400px]">
+                            <div class="bg-white border border-slate-200 rounded-lg p-8 shadow-2xl shadow-slate-200/50">
+                                <h2 class="text-2xl font-black text-slate-900 mb-6">Resumen del Pedido</h2>
+                                <div class="space-y-4 mb-8">
+                                    <div
+                                        class="flex justify-between text-slate-500 font-semibold text-sm uppercase tracking-wider">
+                                        <span>Subtotal</span>
+                                        <span class="text-slate-900">$547.00</span>
+                                    </div>
+                                    <div
+                                        class="flex justify-between text-slate-500 font-semibold text-sm uppercase tracking-wider">
+                                        <span>Envío Estimado</span>
+                                        <span class="text-emerald-600">GRATIS</span>
+                                    </div>
+                                    <div class="pt-6 border-t border-slate-100 flex justify-between items-center">
+                                        <span class="text-xl font-bold text-slate-900">Total</span>
+                                        <span class="text-3xl font-black text-primary">$547.00</span>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full bg-dark-btn text-accent-yellow rounded-full py-5 flex items-center justify-center gap-3 font-black text-lg hover:opacity-90 transition-all shadow-lg">
+                                    Proceder al Pago
+                                    <span class="material-symbols-outlined font-bold">arrow_forward</span>
+                                </button>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

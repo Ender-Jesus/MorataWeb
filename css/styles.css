@@ -1,0 +1,180 @@
+/* =============================================
+   Lumina Lighting Store — Global Stylesheet
+   Complementary styles for Tailwind CSS CDN
+   ============================================= */
+
+/* ─── Shared Background Patterns ─── */
+
+/* Used in: product.html, login.html */
+.electrical-pattern {
+    background-color: #FFFFFF;
+    background-image: radial-gradient(circle at 2px 2px, rgba(52, 59, 168, 0.08) 1.5px, transparent 0);
+    background-size: 40px 40px;
+}
+
+/* Used in: login.html (variant con cuadrícula) */
+.electrical-pattern-grid {
+    background-color: #ffffff;
+    background-image:
+        radial-gradient(#e5e7eb 1px, transparent 1px),
+        linear-gradient(to right, #f3f4f6 1px, transparent 1px),
+        linear-gradient(to bottom, #f3f4f6 1px, transparent 1px);
+    background-size: 40px 40px, 100px 100px, 100px 100px;
+    position: relative;
+}
+
+.electrical-pattern-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20 L60 20 L60 60 M140 20 L140 80 L180 80 M20 140 L20 180 L80 180 M180 140 L120 140 L120 180' stroke='%23e2e8f0' stroke-width='1' fill='none'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23cbd5e1'/%3E%3Ccircle cx='140' cy='80' r='2' fill='%23cbd5e1'/%3E%3Ccircle cx='20' cy='140' r='2' fill='%23cbd5e1'/%3E%3Ccircle cx='120' cy='140' r='2' fill='%23cbd5e1'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* ─── Wiring (grid) Pattern ─── */
+
+/* Used in: carrito.html */
+:root {
+    --grid-line: #f1f3f7;
+    --grid-dot: #e2e8f0;
+}
+
+.wiring-pattern {
+    background-color: #ffffff;
+    background-image:
+        radial-gradient(var(--grid-dot) 1px, transparent 1px),
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px, 60px 60px, 60px 60px;
+    background-position: -0.5px -0.5px, 0 0, 0 0;
+}
+
+/* ─── Custom Scrollbar ─── */
+
+/* Used in: producto.html */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #343ba8;
+    border-radius: 10px;
+}
+
+/* ─── Button Glow Hover Effect ─── */
+/* Used in: index.html — "Ver Detalles" and "Comprar Ahora" buttons */
+
+
+
+.btn-glow {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Hover: invert colours + subtle border brightness (+5-10%) */
+.btn-glow:hover {
+    background-color: #FFD700 !important;
+    color: #1A1A1A !important;
+    box-shadow:
+        0 0 0 2px rgba(255, 215, 0, 0.90),
+        0 0 6px 3px rgba(255, 215, 0, 0.35),
+        0 0 14px 5px rgba(255, 215, 0, 0.12);
+}
+
+/* ─── Heart Favourite Button ─── */
+
+@keyframes heart-electric {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 215, 0, 0.00), 0 0 0px 0px rgba(255, 165, 0, 0.00);
+    }
+
+    20% {
+        box-shadow: 0 0 0 5px rgba(255, 215, 0, 0.70), 0 0 12px 6px rgba(255, 165, 0, 0.50);
+    }
+
+    45% {
+        box-shadow: 0 0 0 9px rgba(255, 215, 0, 0.40), 0 0 22px 12px rgba(255, 165, 0, 0.25);
+    }
+
+    70% {
+        box-shadow: 0 0 0 13px rgba(255, 215, 0, 0.15), 0 0 32px 16px rgba(255, 165, 0, 0.10);
+    }
+
+    100% {
+        box-shadow: 0 0 0 16px rgba(255, 215, 0, 0.00), 0 0 0px 0px rgba(255, 165, 0, 0.00);
+    }
+}
+
+@keyframes heart-bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.45);
+    }
+
+    50% {
+        transform: scale(0.85);
+    }
+
+    72% {
+        transform: scale(1.20);
+    }
+
+    88% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Perfect circle */
+.heart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Icon: outline by default, smooth transition to filled */
+.heart-btn .heart-icon {
+    font-variation-settings: 'FILL' 0, 'wght' 400;
+    transition: font-variation-settings 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.heart-btn:hover {
+    color: #FFD700;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Electric ring on the button */
+.heart-btn.is-sparking {
+    animation: heart-electric 0.65s ease-out forwards;
+}
+
+/* Bounce on the icon */
+.heart-btn.is-sparking .heart-icon {
+    animation: heart-bounce 0.65s ease-out forwards;
+    display: inline-block;
+}
+
+/* Favorited = permanently yellow + filled heart */
+.heart-btn.is-favorited {
+    color: #FFD700;
+}
+
+.heart-btn.is-favorited .heart-icon {
+    font-variation-settings: 'FILL' 1, 'wght' 500;
+    color: #FFD700;
+}

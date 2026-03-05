@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumina - Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#343BA8",
+                        "accent": "#FFD700",
+                        "background-light": "#FFFFFF",
+                        "text-main": "#1e1e1e",
+                        "text-muted": "#6b7280",
+                        "button-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-white font-display antialiased min-h-screen flex flex-col electrical-pattern-grid text-text-main">
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex items-center justify-between whitespace-nowrap bg-primary px-10 py-4 text-white shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center text-accent">
+                    <span class="material-symbols-outlined !text-[28px]">lightbulb</span>
+                </div>
+                <h2 class="text-white text-xl font-bold tracking-tight">Lumina</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="text-white hover:text-accent transition-colors text-sm font-medium" href="index.html">Volver a
+                    la Tienda</a>
+            </div>
+        </header>
+        <main class="flex flex-1 items-center justify-center p-6">
+            <div class="w-full max-w-[440px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
+                <div class="bg-primary p-10 text-center flex flex-col items-center gap-4">
+                    <div
+                        class="size-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-accent">
+                        <span class="material-symbols-outlined !text-[36px]">lightbulb</span>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-2xl font-bold tracking-tight mb-1">Lumina</h1>
+                        <p class="text-white/80 text-sm font-medium">Excelencia en Iluminación Residencial</p>
+                    </div>
+                </div>
+                <div class="p-10">
+                    <form class="flex flex-col gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider" for="email">Correo
+                                Electrónico</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">mail</span>
+                                <input
+                                    class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="email" placeholder="juan@ejemplo.com" required="" type="email" />
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+                                for="password">Contraseña</label>
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
+                                <input
+                                    class="w-full pl-10 pr-12 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm placeholder:text-slate-300"
+                                    id="password" placeholder="••••••••" required="" type="password" />
+                                <button id="toggle-password"
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                        <button
+                            class="mt-2 flex w-full items-center justify-center gap-3 bg-button-dark text-accent h-14 rounded-lg font-bold text-base hover:bg-black transition-all shadow-lg group"
+                            type="submit">
+                            <span>Iniciar Sesión</span>
+                            <span
+                                class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                        <div class="flex flex-col gap-4 text-center mt-2">
+                            <a class="text-sm font-semibold text-primary hover:underline" href="#">¿Olvidaste tu
+                                contraseña?</a>
+                            <div class="flex items-center gap-4 py-2">
+                                <div class="h-px flex-1 bg-slate-100"></div>
+                                <span class="text-xs text-slate-400 font-medium uppercase tracking-widest">o</span>
+                                <div class="h-px flex-1 bg-slate-100"></div>
+                            </div>
+                            <p class="text-text-muted text-sm">
+                                ¿Nuevo en Lumina?
+                                <a class="text-primary font-bold hover:underline ml-1" href="registro.html">Crear
+                                    Cuenta</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer class="py-10 px-10 text-center">
+            <p class="text-text-muted text-[10px] uppercase tracking-[0.2em] font-bold">© 2024 Lumina Lighting
+                Solutions. Diseñado para Brillar.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.getElementById('toggle-password');
+            const inp = document.getElementById('password');
+            if (btn && inp) {
+                btn.addEventListener('click', function () {
+                    const isHidden = inp.type === 'password';
+                    inp.type = isHidden ? 'text' : 'password';
+                    this.querySelector('span').textContent = isHidden ? 'visibility_off' : 'visibility';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

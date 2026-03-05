@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumina - Detalles del Producto</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#343ba8",
+                        "accent-yellow": "#FFD700",
+                        "background-white": "#FFFFFF",
+                        "text-dark": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-white font-display text-text-dark min-h-screen electrical-pattern">
+    <header class="sticky top-0 z-50 w-full bg-primary shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-12">
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="bg-white p-2 rounded-lg text-primary">
+                    <span class="material-symbols-outlined text-2xl">lightbulb</span>
+                </div>
+                <h2 class="text-xl font-extrabold tracking-tight text-white hidden lg:block uppercase">Lumina</h2>
+            </div>
+            <div class="flex-1">
+                <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+                        <span class="material-symbols-outlined text-xl">search</span>
+                    </div>
+                    <input
+                        class="w-full bg-white border-0 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:ring-4 focus:ring-white/20 text-text-dark placeholder-slate-400 transition-all"
+                        placeholder="Buscar lámparas de diseño, arañas, apliques..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-4 shrink-0">
+                <a href="carrito.html"
+                    class="p-2.5 hover:bg-white/10 rounded-full transition-colors relative text-white">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-accent-yellow rounded-full"></span>
+                </a>
+                <div
+                    class="flex items-center gap-3 bg-white/10 p-1.5 pr-4 rounded-full hover:bg-white/20 transition-colors cursor-pointer">
+                    <div class="h-9 w-9 rounded-full border-2 border-white/50 overflow-hidden">
+                        <img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnWKzYu9x58UY2AyJJ9vXQ_QxmrCRQGt6t_69K1g1kHsYswhoxag4JlufAbynNQuFo3xxUXGGSfhqYODUo2LHCoeLgiNsB8BE3GLt1bkbq8HHLjkpJo8iW-68xzsdxxX9Zs411UybAWvcuteSSYZa9O6kz6JwjMBshwqGS61Ugdfa1ujVDXQvb1rrSDCLyKZf5slNcWwc_Vvglo2HoNEbb8-N5IgjHNy6c0KbDaHT4nar9APrC26AYWN3qOoIVJG_2KlYPyiyP4a4"
+                            alt="Perfil de usuario" />
+                    </div>
+                    <span class="text-white text-sm font-bold hidden sm:block">Mi Cuenta</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <nav class="flex items-center gap-2 text-sm font-medium mb-8 text-slate-400">
+            <a class="hover:text-primary" href="index.html">Inicio</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <a class="hover:text-primary" href="#">Colecciones</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-primary font-bold">Colección Aurelius</span>
+        </nav>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="space-y-4">
+                <div
+                    class="relative aspect-[4/5] rounded-xl border-2 border-[#343BA8] overflow-hidden bg-white shadow-sm group">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIb79WOFq9HctVsKPSK4MIKE8WxiqCOxQcCfRp79_k-aaR1peoh6lQRFRNaTfwcO3H8LhWdSLOMyDQjAfmZ9jS_Ec6fw8kWnVzOPgXaiWo4fBFvFCSzUICJMyJyEzi7sCgCezdmaZ273WWjH0bjxKZHqLqRvoXfp8BP4n4W9vmGy6eDYr63YeYNLWuNqtUOHLO8oSYVehdq286uV5Un5SxZr0a6lGZ0-aLdTt_6kea6ty4tOecc613FLPbjanzDyjBKFPlYxE8DvU"
+                        alt="Lámpara de mesa de vidrio de lujo con base de latón" />
+                    <div class="absolute top-6 right-6 flex flex-col gap-3">
+                        <button
+                            class="bg-white/90 backdrop-blur shadow-md p-3 rounded-full text-slate-800 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        <button
+                            class="bg-white/90 backdrop-blur shadow-md p-3 rounded-full text-slate-800 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined">share</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <div
+                        class="aspect-square rounded-lg border border-[#343BA8]/20 overflow-hidden cursor-pointer hover:border-primary transition-all bg-white">
+                        <img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6UDP6tOMxt0P7Bs3l26uhHJjQeJcHH4BbrnlQb9afdmFGh--9l1VpPhLHEKQEEOu1yrWxY8smcwfdqkyyg6PLLidumv3WrPH-bq8BYLgEM_0NkPO3R6UHulZo4Es22p7DmmNxUaQqD2sP4mUMfBcdOsglACepbbPZWWEDOgo0At-kfuo3TZZ_UBEua2skqyrPtoaTYqt2vx7pAaMHYF7RoFS5eMl48DfS95cYbsQvRe1aF3qbFV3171qhA5Ldbeay0g46lRabN7k"
+                            alt="Vista del detalle de textura de vidrio" />
+                    </div>
+                    <div
+                        class="aspect-square rounded-lg border border-[#343BA8]/20 overflow-hidden cursor-pointer hover:border-primary transition-all bg-white">
+                        <img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuApbXuXhd008bvF020ScxXkHkLPThfLG0n2nXeJ5fSrXzPER7O4BOXkPwQqYBmMPOZJhO1lXRH6oZm-WDLUZn6emNldJq2HxMF6QcHsXgLg5-TATxRS_t1K_Bl6yuuEh2UQTviYEUOUmdv_HqWYuX_VXhNS5KIyfbpLB5RhpKhJup5vY8GQI6zouslL_zAHHIZVA5JZbNZI879N2ha4ifsi73ZT9T_tSqOCsK-GMp7s4TwjyHSseix8ZMAyzBqUGcpiBT7OmgGVujo"
+                            alt="Patrón de luz en la pared" />
+                    </div>
+                    <div
+                        class="aspect-square rounded-lg border border-[#343BA8]/20 overflow-hidden cursor-pointer hover:border-primary transition-all bg-white">
+                        <img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVkN4qL6s_a_pwC5fc2paA8ZRIAzwbwsGDy3RhE-dC7kPyzwxfNeW5SLslyEmd5EHf1RGUuRp7M2lTIKDbehovwPBFnuhiXcIv7SD_OTPUXfLyvqfcOxirEu0nqrTxorATtOXGGQ8LU_UB1xgE3jj9Fpl-KNLv7J0GVnyE9zvFp4UQXUcWxqi5iwvZn6e2cwZCho0I5fsRRHq7DE3ka-BDxcaA1qQ379-BE_hY4S8b5tzgVJVCX71ALLXy7fWofQkyCmPmrUUEWYk"
+                            alt="Lámpara en un salón" />
+                    </div>
+                    <div
+                        class="aspect-square rounded-lg border border-[#343BA8]/20 overflow-hidden flex items-center justify-center bg-slate-50">
+                        <span class="material-symbols-outlined text-primary text-3xl">play_circle</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="mb-2 flex items-center gap-2">
+                    <span
+                        class="bg-primary text-white text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-md">Nueva
+                        Llegada</span>
+                    <div class="flex text-accent-yellow">
+                        <span class="material-symbols-outlined !text-sm fill-current">star</span>
+                        <span class="material-symbols-outlined !text-sm fill-current">star</span>
+                        <span class="material-symbols-outlined !text-sm fill-current">star</span>
+                        <span class="material-symbols-outlined !text-sm fill-current">star</span>
+                        <span class="material-symbols-outlined !text-sm">star_half</span>
+                        <span class="text-slate-500 text-xs ml-2 font-medium">4.8 (124 reseñas)</span>
+                    </div>
+                </div>
+                <h1 class="text-5xl font-black mb-4 leading-tight text-text-dark">Lámpara de Mesa Seraphim Glass</h1>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    Una pieza exquisita de artesanía. El Seraphim presenta vidrio artesanal soplado a mano con acabado
+                    de latón cepillado. Su presencia etérea eleva cualquier espacio de trabajo o mesilla.
+                </p>
+                <div
+                    class="grid grid-cols-2 gap-y-6 gap-x-12 mb-10 border-y border-slate-100 py-8 bg-slate-50/50 rounded-xl px-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">bolt</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Vatios</p>
+                            <p class="font-bold text-text-dark">60W Máx.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">straighten</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Dimensiones</p>
+                            <p class="font-bold text-text-dark">46cm H × 30cm A</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">foundation</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Material</p>
+                            <p class="font-bold text-text-dark">Vidrio Artesanal / Latón</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">inventory_2</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Stock</p>
+                            <p class="font-bold text-text-dark">Disponibilidad Limitada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-10">
+                    <span class="text-5xl font-black text-primary">$850.00</span>
+                    <span class="ml-4 text-slate-400 line-through text-2xl font-medium">$1,200.00</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center bg-slate-100 rounded-xl p-1 h-16 w-32 justify-between">
+                        <button
+                            class="w-10 h-10 flex items-center justify-center hover:bg-white rounded-lg transition-colors text-text-dark">
+                            <span class="material-symbols-outlined">remove</span>
+                        </button>
+                        <span class="font-bold text-xl text-text-dark">1</span>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center hover:bg-white rounded-lg transition-colors text-primary">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+                    <button
+                        class="flex-1 h-16 bg-[#1a1a1a] rounded-xl flex items-center justify-center gap-3 group hover:bg-primary transition-all duration-300">
+                        <span class="text-accent-yellow font-black text-lg">AGREGAR AL CARRITO</span>
+                        <span
+                            class="material-symbols-outlined text-accent-yellow group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+                <p class="mt-6 flex items-center gap-2 text-sm text-slate-500">
+                    <span class="material-symbols-outlined text-primary text-sm">local_shipping</span>
+                    Envío gratis a todo el mundo y política de devolución de 30 días.
+                </p>
+            </div>
+        </div>
+        <section class="mt-24">
+            <div class="flex items-center justify-between mb-10">
+                <div>
+                    <h3 class="text-3xl font-black text-text-dark mb-2">Obras Maestras Relacionadas</h3>
+                    <p class="text-slate-500">Iluminación seleccionada para completar tu estética.</p>
+                </div>
+                <button class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                    Ver Galería <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="group bg-white border-2 border-[#343BA8] rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-4">
+                    <div class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-4 bg-slate-50">
+                        <img class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWmEseccxGYc_AdtMMZ3PHwf83f4rSuSzuL2eXzbk40gRN8hUWhZvxpRynlCeawYLPPpR0oya_-YDgOkfugtTQ7NmH0isT3kL9F03qex0yZohDnjqSmKAta6FmTRdkLEZaPamfdpTrFNDFkFhfsacU-T-m11MraSCdjvHDH-QXuZTGs26tSf-SCHHeN1HxrWhyNHyeOpBbHI4NUDhHXkNfz8G1UknbbaqReIp_NlRqeJqqaSH1QRzBCi3xpe3-Uprnx5buffghxYw"
+                            alt="Lámpara de pie minimalista moderna" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <button class="w-full bg-white text-primary py-2 rounded-lg font-bold text-sm">VISTA
+                                RÁPIDA</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col px-2">
+                        <span class="text-[10px] font-bold text-primary tracking-widest uppercase mb-1">Colección
+                            Aurelius</span>
+                        <h4 class="font-bold text-lg mb-1 text-text-dark group-hover:text-primary transition-colors">
+                            Lámpara de Pie Luna</h4>
+                        <p class="text-primary font-black">$520.00</p>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white border-2 border-[#343BA8] rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-4">
+                    <div class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-4 bg-slate-50">
+                        <img class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoL3cSCv2Y3cbbYEROYgYdhFLvPmfcDCAf0HSbUVh9FEIyH1NzM3Eb3PiU9ih5okUmWSqO40mxn-xcYnQPvdharPo0ikY7iuQy3yb-ygJBDqzAbnuIxFCVU20jWAS7BY-AesgudzxYMz0A3zIjERa4XSjSajuda07x0QSSYaaMJ9RqjPfq2EKJ7INXSrlIEjnUbmnsInHeyofZUfi-atrrlxKnAdi_G5DwUL_YMjBdrwA19KNd40besWjO8TTmMwEwHGQtwIFylzg"
+                            alt="Aplique de pared en latón cepillado" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <button class="w-full bg-white text-primary py-2 rounded-lg font-bold text-sm">VISTA
+                                RÁPIDA</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col px-2">
+                        <span class="text-[10px] font-bold text-primary tracking-widest uppercase mb-1">Modern
+                            Loft</span>
+                        <h4 class="font-bold text-lg mb-1 text-text-dark group-hover:text-primary transition-colors">
+                            Aplique Brass Beam</h4>
+                        <p class="text-primary font-black">$295.00</p>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white border-2 border-[#343BA8] rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-4">
+                    <div class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-4 bg-slate-50">
+                        <img class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuByYpfXIRJGIOc8f3VRUNve-gRhKdd7z2QATitXcDFTC4ATmSBOr-0i_mt5gO1FZnFDW3Y-jRwEbS5s8suiXP7VEmAmp3C0BClSkzl2Mypu5i8nwL72bLR8LCgt5yH9-etn_NrorWudln40dCGGHo_PYap0auMoNG7me8REDPrPOL58H1SYHcNq8Mf2bm5GPAX_RlEWuAVkjvrWu1U-InDCjzfu5HGh923PchnFKeMu639xMAgfqU5A1DcaXQ3--AyVyvT0u57U00U"
+                            alt="Colgante geométrico" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <button class="w-full bg-white text-primary py-2 rounded-lg font-bold text-sm">VISTA
+                                RÁPIDA</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col px-2">
+                        <span class="text-[10px] font-bold text-primary tracking-widest uppercase mb-1">Industrial
+                            Series</span>
+                        <h4 class="font-bold text-lg mb-1 text-text-dark group-hover:text-primary transition-colors">
+                            Colgante Vortex</h4>
+                        <p class="text-primary font-black">$710.00</p>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white border-2 border-[#343BA8] rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-4">
+                    <div class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-4 bg-slate-50">
+                        <img class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1hkOeW19whRSCV4DETjo8_3tbT95MZGhoId0a4GSKpeSQtKh6LBdadcLqqs0wLiQGVt7GWLAqzyJ0w_2hCl8GkUht3ceOGBshJjqvki7GSIL7U5_41GLgncZDcSHVeO8EyBzqiMLZVChWwfkNH0sZKGO_v21Uxqd8zGy-Gwk3lYR0SirZipKCEXpdi9Q5ZvhBn11EOesUQ74xHOs6vokGepnB_3CWTe4bK1_2pJJpwsJ9Xz1dnW74rr-uKTl0fojuQ-Blwzdo9Do"
+                            alt="Lámpara de escritorio Art Deco" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <button class="w-full bg-white text-primary py-2 rounded-lg font-bold text-sm">VISTA
+                                RÁPIDA</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col px-2">
+                        <span class="text-[10px] font-bold text-primary tracking-widest uppercase mb-1">Retro
+                            Futurism</span>
+                        <h4 class="font-bold text-lg mb-1 text-text-dark group-hover:text-primary transition-colors">
+                            Lámpara Empire</h4>
+                        <p class="text-primary font-black">$440.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-slate-50 mt-24 border-t border-primary/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-primary p-2 rounded-lg text-white">
+                        <span class="material-symbols-outlined text-xl">lightbulb</span>
+                    </div>
+                    <h2 class="text-lg font-black text-text-dark uppercase">Lumina</h2>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                    Creando experiencias de iluminación para hogares modernos desde 1994. Calidad, diseño y precisión en
+                    cada bombilla.
+                </p>
+            </div>
+            <div>
+                <h5 class="font-bold mb-6 text-text-dark uppercase tracking-widest text-xs">Categorías</h5>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a class="hover:text-primary transition-colors" href="#">Arañas</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Lámparas de Pie</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Apliques</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Iluminación Inteligente</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold mb-6 text-text-dark uppercase tracking-widest text-xs">Soporte</h5>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a class="hover:text-primary transition-colors" href="#">Info de Envío</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Política de Devolución</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Guía de Mantenimiento</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Contáctanos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold mb-6 text-text-dark uppercase tracking-widest text-xs">Mantente Informado</h5>
+                <div class="flex gap-2">
+                    <input
+                        class="flex-1 bg-white border border-primary/20 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-primary text-text-dark"
+                        placeholder="Correo electrónico" type="email" />
+                    <button class="bg-primary text-white p-2 rounded-lg">
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 text-center text-slate-400 text-xs">
+            © 2024 Lumina Lighting Co. Todos los derechos reservados.
+        </div>
+    </footer>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

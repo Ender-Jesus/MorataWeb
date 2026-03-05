@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumina - Tienda de Iluminación</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#343BA8",
+                        "accent": "#FFD700",
+                        "background-light": "#FFFFFF",
+                        "text-main": "#1e1e1e",
+                        "text-muted": "#6b7280",
+                        "button-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-white font-display antialiased min-h-screen flex flex-col overflow-x-hidden text-text-main">
+    <div class="layout-container flex h-full grow flex-col">
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-white/10 bg-primary px-10 py-3 text-white shadow-md">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 text-white">
+                    <div class="size-8 flex items-center justify-center text-accent">
+                        <span class="material-symbols-outlined !text-[32px]">lightbulb</span>
+                    </div>
+                    <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Lumina</h2>
+                </div>
+                <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+                    <div
+                        class="flex w-full flex-1 items-stretch rounded-lg h-full group focus-within:ring-2 focus-within:ring-accent/50">
+                        <div
+                            class="text-white/70 flex border-none bg-white/10 items-center justify-center pl-4 rounded-l-lg border-r-0">
+                            <span class="material-symbols-outlined text-[20px]">search</span>
+                        </div>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-white/10 focus:border-none h-full placeholder:text-white/50 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                            placeholder="Buscar productos..." value="" />
+                    </div>
+                </label>
+            </div>
+            <div class="flex flex-1 justify-end gap-8">
+                <div class="hidden lg:flex items-center gap-9">
+                    <a class="text-white hover:text-accent text-sm font-medium leading-normal transition-colors"
+                        href="#">Productos</a>
+                    <a class="text-white hover:text-accent text-sm font-medium leading-normal transition-colors"
+                        href="#">Proyectos</a>
+                    <a class="text-white hover:text-accent text-sm font-medium leading-normal transition-colors"
+                        href="#">Contacto</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a class="relative flex items-center gap-2 text-white hover:text-accent transition-colors"
+                        href="carrito.html">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span id="cart-badge" style="display: none;"
+                            class="absolute -top-1.5 -right-2 flex min-w-[18px] h-[18px] items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-primary transition-transform duration-200">0</span>
+                    </a>
+                    <a href="login.html"
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-yellow-400 transition-colors shadow-lg shadow-black/20">
+                        <span class="truncate">Login</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="flex flex-1 flex-col justify-start pb-5">
+            <div class="w-full mb-12">
+                <div class="relative flex min-h-[550px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-start justify-center px-10 md:px-20 overflow-hidden"
+                    style='background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_8REMkcToWB1ZeTsEONfoEd8c72OgGn8hPgbZcwvQoAEZpe5t_cHQEfMJlsczCP1LBPQTE_dJm9CYntzMgbBoRuuZ47-oLpEEwsd7fljHbG6SCt2pS7FPFKRhTMPOGWIekW2Fd7prpWnN0kpue8x4zs2hCYbuZx6GQmJJIl6foNKgyKG6_8E4OpNDG8-IXAI23qMq67WdAXequ0_TYVonY0CCka6EaISI8fOMmYWY_KmEifG6rn27JSe24jiJcVhtKy-4xkxstPs");'>
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent mix-blend-multiply">
+                    </div>
+                    <div class="relative z-10 flex flex-col gap-4 text-left max-w-3xl">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 w-fit">
+                            <span class="text-accent text-xs font-bold uppercase tracking-wider">Nueva Colección</span>
+                        </div>
+                        <h1
+                            class="text-white text-5xl font-black leading-tight tracking-[-0.033em] md:text-7xl drop-shadow-sm">
+                            Ilumina Tu Mundo
+                        </h1>
+                        <h2 class="text-slate-100 text-xl font-medium leading-relaxed max-w-xl">
+                            Descubre soluciones modernas de iluminación para cada espacio. Desde industrial chic hasta
+                            diseños minimalistas.
+                        </h2>
+                        <div class="mt-4">
+                            <button
+                                class="btn-glow relative z-10 flex cursor-pointer items-center justify-center rounded-lg h-14 px-10 bg-button-dark text-accent text-lg font-bold leading-normal tracking-[0.015em] shadow-xl shadow-accent/20">
+                                <span class="truncate">Comprar Ahora</span>
+                                <span class="material-symbols-outlined ml-2 text-sm text-accent">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-content-container flex flex-col w-full max-w-[1200px] self-center flex-1 px-4 md:px-10">
+                <div class="flex flex-col gap-6 mb-20">
+                    <div class="flex items-end justify-between px-2">
+                        <h2 class="text-text-main tracking-tight text-[28px] font-bold leading-tight">Explorar
+                            Categorías</h2>
+                        <a class="text-primary text-sm font-bold flex items-center gap-1 hover:underline hover:text-primary/80"
+                            href="#">
+                            Ver Todo <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div
+                            class="group relative cursor-pointer overflow-hidden rounded-xl aspect-[4/5] shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0QN-yMBdwYxSJxCpRhBUZ6Bdl9knwdZjAVP4jQpsFGM-qRFDmnzZcTJLZaae1RqFjrpOPH-JL1IK7iBdPHxHUrXQcLU9aneVG_1jq9RuN8W1y36AOHoofaxR5pzH7s0EGXXEg6g5aWFMVU5Ic6qFmnCP0HD2dlI3c4a1t-qilChW7a1cSE6i9Tq7eHni720Jj1qU2vl0Z7coKlsX70ERw3Ze3Slgj1ajtYDOAmLqieGrH1IwK6k7ucseWaxVuJhGYhTwQfWFZkn8");'>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+                                <div
+                                    class="mb-2 size-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <span class="material-symbols-outlined">streetview</span>
+                                </div>
+                                <h3 class="text-white text-xl font-bold leading-tight">Iluminación Pública</h3>
+                                <p
+                                    class="text-slate-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                    Parques, Calles &amp; Exterior</p>
+                            </div>
+                        </div>
+                        <div
+                            class="group relative cursor-pointer overflow-hidden rounded-xl aspect-[4/5] shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvXSYMNMEKP4FGvN6neGQTALrgQXTr20NScawah5VvLRSwakgeWXbhl8AOcJGhhzx0AGjUy5mjzH3RT0SNjkXjW-sPcqekbG_fTbKjeUDtE7UfxYoPsFf9d1mTfn3JLsZ5kqNQdSgTSL8MYk_rovaUd90775OgLvlYdsHtbUju8xqbHPP6xfeYZf02McTUjFcThhosv473NufqUa2u7I8quyplhnjIGGgPqrq7BPncE3yWJ0k1MVZHunFUS3QNmrAdOQYDMfbxrzM");'>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+                                <div
+                                    class="mb-2 size-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <span class="material-symbols-outlined">chair</span>
+                                </div>
+                                <h3 class="text-white text-xl font-bold leading-tight">Hogar General</h3>
+                                <p
+                                    class="text-slate-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                    Techo, Piso &amp; Pared</p>
+                            </div>
+                        </div>
+                        <div
+                            class="group relative cursor-pointer overflow-hidden rounded-xl aspect-[4/5] shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCo7ho_sw5LvPlxhR2qzHf3myo0cJe2Xspx9QdrsbeWkIN--bz1LSf6fdYtNAEWN8fQ7Y6NhLCYZ-pJ8TjC4aqvhQ7flPPYv61t1WsQbpi802n6whBWGVSh2FZe_uDn6yL1Q52vewEv_Jjj2J96kRSZeHATxuKPTP-WXt4PEmqME2nNcyMA-CHr12kxPaZIQHDL_1r_ma__nszuNpF4UpddSlupYEpDdakPUjHBNZPuxR83T_OPG474fL-nPPsfInjEi-MOjCyCdKg");'>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+                                <div
+                                    class="mb-2 size-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <span class="material-symbols-outlined">diamond</span>
+                                </div>
+                                <h3 class="text-white text-xl font-bold leading-tight">Lámparas de Lujo</h3>
+                                <p
+                                    class="text-slate-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                    Arañas &amp; Diseño</p>
+                            </div>
+                        </div>
+                        <div
+                            class="group relative cursor-pointer overflow-hidden rounded-xl aspect-[4/5] shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaH0SoeVaGDXbpeTBS9bdYQ2Dt7eq-e_3Ti8r_o8HwCY5XbVr0B8wdSQ0F0Jjt7zK0J5ZSTOlRwXBH9wqrR1m7EN4KptK3ZEyu6xyCt-hyL4q5qNtuJ0uUhn8Db5_ObZ0-2N5Y0Bauq_ndcC9_U8yPbdUU2mvh3qxgDH8orJ92jQoXKsZWGT0Z5JaZJt6lVqn1nYvKrkq7Wh6_PMH0BQfocH8S_Ph1i6HOwgvanNC1tXaEbIvo4KH2D4uwyl98MSMcCVVTiJmw94s");'>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+                                <div
+                                    class="mb-2 size-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <span class="material-symbols-outlined">electrical_services</span>
+                                </div>
+                                <h3 class="text-white text-xl font-bold leading-tight">Miscelánea</h3>
+                                <p
+                                    class="text-slate-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                    Interruptores, Cables &amp; Tubos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 mb-10">
+                    <h2 class="text-text-main tracking-tight text-[28px] font-bold leading-tight px-2">Populares</h2>
+                    <div id="populares-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- El contenedor está vacío y ahora se llenará de forma dinámica mediante Supabase (app.js) -->
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    <footer class="mt-auto border-t border-slate-200 bg-white py-10 px-10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1200px] mx-auto">
+            <div class="flex items-center gap-2 text-primary">
+                <span class="material-symbols-outlined text-primary">lightbulb</span>
+                <span class="font-bold text-lg">Lumina</span>
+            </div>
+            <p class="text-text-muted text-sm">© 2024 Lumina Lighting Store. Todos los derechos reservados.</p>
+            <div class="flex gap-4">
+                <a class="text-text-muted hover:text-primary transition-colors" href="#">Política de Privacidad</a>
+                <a class="text-text-muted hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <!-- Cargar Supabase como variable global (UMD) para que funcione en local con file:// -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Cargar nuestros scripts locales sin type="module" -->
+    <script src="js/carrito.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
