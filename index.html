@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lumina - Tienda de Iluminación</title>
+    <title>Morata - Tienda de Iluminación</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
@@ -40,32 +40,16 @@
             class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-white/10 bg-primary px-10 py-3 text-white shadow-md">
             <div class="flex items-center gap-8">
                 <div class="flex items-center gap-4 text-white">
-                    <div class="size-8 flex items-center justify-center text-accent">
-                        <span class="material-symbols-outlined !text-[32px]">lightbulb</span>
+                    <div class="flex items-center justify-center p-1">
+                        <img src="assets/img/Morata.png" alt="Electro Morata Logo" class="h-10 w-auto object-contain" />
                     </div>
-                    <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Lumina</h2>
+                    <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Morata</h2>
                 </div>
                 <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
-                    <div
-                        class="flex w-full flex-1 items-stretch rounded-lg h-full group focus-within:ring-2 focus-within:ring-accent/50">
-                        <div
-                            class="text-white/70 flex border-none bg-white/10 items-center justify-center pl-4 rounded-l-lg border-r-0">
-                            <span class="material-symbols-outlined text-[20px]">search</span>
-                        </div>
-                        <input
-                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-white/10 focus:border-none h-full placeholder:text-white/50 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
-                            placeholder="Buscar productos..." value="" />
-                    </div>
                 </label>
             </div>
             <div class="flex flex-1 justify-end gap-8">
                 <div class="hidden lg:flex items-center gap-9">
-                    <a class="text-white hover:text-accent text-sm font-medium leading-normal transition-colors"
-                        href="#">Productos</a>
-                    <a class="text-white hover:text-accent text-sm font-medium leading-normal transition-colors"
-                        href="#">Proyectos</a>
-                    <a class="text-white hover:text-accent text-sm font-medium leading-normal transition-colors"
-                        href="#">Contacto</a>
                 </div>
                 <div class="flex items-center gap-4">
                     <a class="relative flex items-center gap-2 text-white hover:text-accent transition-colors"
@@ -100,6 +84,7 @@
                         </h2>
                         <div class="mt-4">
                             <button
+                                onclick="document.getElementById('productos-section').scrollIntoView({ behavior: 'smooth' })"
                                 class="btn-glow relative z-10 flex cursor-pointer items-center justify-center rounded-lg h-14 px-10 bg-button-dark text-accent text-lg font-bold leading-normal tracking-[0.015em] shadow-xl shadow-accent/20">
                                 <span class="truncate">Comprar Ahora</span>
                                 <span class="material-symbols-outlined ml-2 text-sm text-accent">arrow_forward</span>
@@ -193,8 +178,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col gap-6 mb-10">
-                    <h2 class="text-text-main tracking-tight text-[28px] font-bold leading-tight px-2">Populares</h2>
+                <div id="productos-section" class="flex flex-col gap-6 mb-10 pt-10">
+                    <h2 class="text-text-main tracking-tight text-[28px] font-bold leading-tight px-2">Productos</h2>
                     <div id="populares-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- El contenedor está vacío y ahora se llenará de forma dinámica mediante Supabase (app.js) -->
                     </div>
@@ -206,9 +191,9 @@
         <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1200px] mx-auto">
             <div class="flex items-center gap-2 text-primary">
                 <span class="material-symbols-outlined text-primary">lightbulb</span>
-                <span class="font-bold text-lg">Lumina</span>
+                <span class="font-bold text-lg">Morata</span>
             </div>
-            <p class="text-text-muted text-sm">© 2024 Lumina Lighting Store. Todos los derechos reservados.</p>
+            <p class="text-text-muted text-sm">© 2024 Electro Morata. Todos los derechos reservados.</p>
             <div class="flex gap-4">
                 <a class="text-text-muted hover:text-primary transition-colors" href="#">Política de Privacidad</a>
                 <a class="text-text-muted hover:text-primary transition-colors" href="#">Términos de Servicio</a>
@@ -229,7 +214,7 @@
                 const authArea = document.getElementById('auth-area');
                 if (!authArea) return;
 
-                const sessionRaw = localStorage.getItem('lumina_session');
+                const sessionRaw = localStorage.getItem('morata_session');
 
                 if (!sessionRaw) {
                     // No hay sesión: mostrar botón de Login
@@ -243,7 +228,7 @@
 
                 // Hay sesión: mostrar avatar con iniciales
                 let session;
-                try { session = JSON.parse(sessionRaw); } catch (e) { localStorage.removeItem('lumina_session'); return; }
+                try { session = JSON.parse(sessionRaw); } catch (e) { localStorage.removeItem('morata_session'); return; }
 
                 // Calcular iniciales: primer nombre + primer apellido
                 const primerNombre = (session.nombres || '').split(' ')[0];
@@ -275,7 +260,7 @@
 
                 // Evento de logout
                 document.getElementById('logout-btn').addEventListener('click', function () {
-                    localStorage.removeItem('lumina_session');
+                    localStorage.removeItem('morata_session');
                     window.location.reload();
                 });
             })();

@@ -1,5 +1,5 @@
 /**
- * api.js — Módulo de comunicación con la API de Lumina Lighting Store
+ * api.js — Módulo de comunicación con la API de Morata Lighting Store
  * Conectado a Supabase (versión global UMD para soportar file://)
  */
 
@@ -20,8 +20,7 @@ async function fetchProducts() {
         const { data, error } = await supabaseClient
             .from('producto')
             .select('*, tipo_producto(nombre)')
-            .order('fecha_creacion', { ascending: false })
-            .limit(4);
+            .order('fecha_creacion', { ascending: false });
 
         if (error) throw error;
         return data || [];

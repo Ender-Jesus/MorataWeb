@@ -1,16 +1,16 @@
 /**
- * carrito.js — Módulo de gestión del carrito de compras
+ * carrito.js — Módulo de gestión del carrito de compras de Morata
  * 
  * Comportamiento por sesión:
  *  - Sin sesión activa : el carrito de invitado se borra al cargar la página
  *                        y cualquier acción trabaja sobre una clave temporal
  *                        que se descarta al cerrar/recargar.
  *  - Con sesión activa : el carrito se persiste bajo la clave del usuario
- *                        (lumina_carrito_<id>) y sobrevive cierres de pestaña.
+ *                        (morata_carrito_<id>) y sobrevive cierres de pestaña.
  */
 
-const SESSION_KEY = 'lumina_session';
-const GUEST_KEY = 'lumina_carrito_guest';
+const SESSION_KEY = 'morata_session';
+const GUEST_KEY = 'morata_carrito_guest';
 
 /**
  * Devuelve la clave de localStorage que corresponde al estado de sesión actual.
@@ -25,7 +25,7 @@ function getCartKey(skipClear = false) {
         if (raw) {
             const session = JSON.parse(raw);
             if (session && session.id) {
-                return `lumina_carrito_${session.id}`;
+                return `morata_carrito_${session.id}`;
             }
         }
     } catch { /* ignore */ }

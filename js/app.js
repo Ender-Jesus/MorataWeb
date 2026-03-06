@@ -1,5 +1,5 @@
 /**
- * app.js — Punto de entrada principal de Lumina Lighting Store
+ * app.js — Punto de entrada principal de Morata
  * Inicializa la UI y coordina los módulos de la tienda.
  */
 
@@ -72,12 +72,6 @@ async function init() {
                                     <p class="text-text-muted text-xs whitespace-nowrap">Stock: ${p.stock}</p>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-2 mt-auto pt-4">
-                                <a href="producto.html?id=${p.id_producto}"
-                                    class="block w-full py-2 rounded-lg bg-slate-100 text-text-main hover:bg-slate-200 border border-transparent font-bold text-sm transition-colors text-center">
-                                    Ver Detalles
-                                </a>
-                            </div>
                         </div>
                     </div>
                 `).join('');
@@ -92,7 +86,7 @@ async function init() {
         }
     }
 
-    console.log('Lumina Lighting Store inicializado.');
+    console.log('Morata inicializado.');
 }
 
 /**
