@@ -198,6 +198,12 @@ function bindAddCartButtons(container = document, carrito) {
         btn.parentNode.replaceChild(newBtn, btn);
 
         newBtn.addEventListener('click', function () {
+            // Verificar sesión activa antes de añadir al carrito
+            if (!estaLogueado()) {
+                mostrarTooltipLogin(this);
+                return;
+            }
+
             try {
                 const productData = JSON.parse(this.getAttribute('data-product'));
                 carrito.agregar(productData, 1);
@@ -208,9 +214,62 @@ function bindAddCartButtons(container = document, carrito) {
                     badge.classList.add('scale-150');
                     setTimeout(() => badge.classList.remove('scale-150'), 200);
                 }
+
+                // Feedback visual en el botón
+                mostrarFeedbackCarrito(this);
             } catch (err) {
                 console.error("Error al agregar al carrito", err);
             }
         });
     });
+}
+
+/**
+ * Muestra un tooltip "Inicia sesión" junto al botón y redirige a login.
+ * @param {HTMLElement} btn
+ */
+function mostrarTooltipLogin(btn) {
+    // Evitar duplicados
+    if (btn._tooltipActive) return;
+    btn._tooltipActive = true;
+
+    const tip = document.createElement('div');
+    tip.textContent = '¡Inicia sesión para comprar!';
+    tip.style.cssText = `
+        position:absolute; z-index:9999; bottom:calc(100% + 8px); left:50%;
+        transform:translateX(-50%); white-space:nowrap;
+        background:#1a1a1a; color:#fbbf24; font-size:12px; font-weight:700;
+        padding:6px 12px; border-radius:999px; pointer-events:none;
+        opacity:0; transition:opacity 0.2s;
+    `;
+
+    // El botón necesita position:relative para el posicionamiento del tooltip
+    const parent = btn.offsetParent || btn.parentElement;
+    btn.style.position = 'relative';
+    btn.appendChild(tip);
+
+    requestAnimationFrame(() => { tip.style.opacity = '1'; });
+
+    setTimeout(() => {
+        tip.style.opacity = '0';
+        setTimeout(() => {
+            tip.remove();
+            btn._tooltipActive = false;
+        }, 200);
+        window.location.href = 'login.html';
+    }, 1200);
+}
+
+/**
+ * Animación de confirmación cuando se agrega al carrito exitosamente.
+ * @param {HTMLElement} btn
+ */
+function mostrarFeedbackCarrito(btn) {
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span>';
+    btn.style.background = '#22c55e';
+    setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.background = '';
+    }, 800);
 }

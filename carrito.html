@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </header>
-            <main class="flex-grow flex items-center justify-center w-full relative z-10 px-10 py-12">
+            <main class="flex-grow flex items-start justify-center w-full relative z-10 px-10 py-12">
                 <div class="max-w-7xl mx-auto w-full">
                     <div class="flex flex-wrap gap-2 mb-6">
                         <a class="text-slate-500 text-sm font-semibold hover:text-primary transition-colors"
@@ -87,87 +87,31 @@
                         <span class="text-primary text-sm font-bold">Carrito de Compras</span>
                     </div>
                     <div class="flex flex-col lg:flex-row gap-10">
+                        <!-- LEFT: Cart Items -->
                         <div class="flex-1 flex flex-col gap-6">
                             <h1 class="text-3xl font-black text-slate-900 leading-tight">Tu Carrito <span
-                                    class="text-primary font-medium text-lg ml-2">(3 artículos)</span></h1>
-                            <div
-                                class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20">
-                                <div class="bg-white p-1 rounded-full shrink-0">
-                                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
-                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAJe0YiUzXFmHmusqhtwzqRYoGLEE9i0m2EImjqvLJI0SDv6IIdguqJEBgKphkSbg1XPTHdpZmi4RguJ0hxCfEQM12cKOhaF6Dbb4DWBL8Cl1tReZLAUdJuq4h5tQ6gNU7ruIK0Kuggpz7PIJPBDkY1WAr1chR9vaeFRU4FOv_IER7wPZuH2YV_hxIWGF8JYHGciGo1LFN_Lvg1W2LHdRlOxRzFxKiKsVDEVA5RulomyxEOxDC1VmIpirDJCL0p3zeeyAMTh0us-I");'>
-                                    </div>
+                                    id="cart-count-label" class="text-primary font-medium text-lg ml-2">(0
+                                    artículos)</span></h1>
+
+                            <!-- Empty state -->
+                            <div id="cart-empty-state"
+                                class="flex flex-col items-center justify-center py-20 gap-4 text-center">
+                                <div class="size-24 flex items-center justify-center bg-primary/10 rounded-full">
+                                    <span class="material-symbols-outlined text-5xl text-primary">shopping_cart</span>
                                 </div>
-                                <div class="flex flex-1 flex-col justify-center">
-                                    <p class="text-white text-lg font-bold">Lámpara de Pie Nórdica Minimalista</p>
-                                    <p class="text-white/70 text-xs tracking-wide uppercase font-medium">Acabado Negro
-                                        Mate • SKU: LUX-001</p>
-                                </div>
-                                <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12">
-                                    <button class="hover:text-accent-yellow transition-colors"><span
-                                            class="material-symbols-outlined text-xl">remove</span></button>
-                                    <span class="text-lg font-bold w-6 text-center">1</span>
-                                    <button class="hover:text-accent-yellow transition-colors"><span
-                                            class="material-symbols-outlined text-xl">add</span></button>
-                                </div>
-                                <div class="text-right pr-6">
-                                    <p class="text-xl font-black">$189.00</p>
-                                </div>
-                                <button class="text-white/40 hover:text-white transition-colors pr-4">
-                                    <span class="material-symbols-outlined">delete</span>
-                                </button>
+                                <p class="text-xl font-bold text-slate-700">Tu carrito está vacío</p>
+                                <p class="text-slate-400 text-sm max-w-xs">Explora nuestra tienda y añade productos al
+                                    carrito con el botón amarillo.</p>
+                                <a href="index.html"
+                                    class="mt-2 inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-full hover:bg-primary/90 transition-all">
+                                    <span class="material-symbols-outlined text-base">arrow_back</span>
+                                    Ir a la Tienda
+                                </a>
                             </div>
-                            <div
-                                class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20">
-                                <div class="bg-white p-1 rounded-full shrink-0">
-                                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
-                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzZy6NFgMuIcARGrORqImjtWxeJo9AIHtyj6mMLSsMKPw825Cji2tym1HQREKLC4S5Rg01Zv9AFqO1WfbFCw1hk1Wo_L9hjSTHln3DI-t-HbbGdX0e-UjJAi5zOdGzX6yD0FELzh6wcGVZRkX9f-1Kv0BP6h2QGQrXxMry2OymCdZJgqBoVyLqGtt7i0CQaJuBWWGK-iRgbuQBz7Bl9749nwEXeSfTpnaIkpE5pS902p7KRsf8C15D-5cbDTwmInBvD3iu-7P0GEs");'>
-                                    </div>
-                                </div>
-                                <div class="flex flex-1 flex-col justify-center">
-                                    <p class="text-white text-lg font-bold">Bombilla Vintage Edison G95</p>
-                                    <p class="text-white/70 text-xs tracking-wide uppercase font-medium">Luz Cálida
-                                        Ámbar • SKU: LUX-E95</p>
-                                </div>
-                                <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12">
-                                    <button class="hover:text-accent-yellow transition-colors"><span
-                                            class="material-symbols-outlined text-xl">remove</span></button>
-                                    <span class="text-lg font-bold w-6 text-center">4</span>
-                                    <button class="hover:text-accent-yellow transition-colors"><span
-                                            class="material-symbols-outlined text-xl">add</span></button>
-                                </div>
-                                <div class="text-right pr-6">
-                                    <p class="text-xl font-black">$48.00</p>
-                                </div>
-                                <button class="text-white/40 hover:text-white transition-colors pr-4">
-                                    <span class="material-symbols-outlined">delete</span>
-                                </button>
-                            </div>
-                            <div
-                                class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20">
-                                <div class="bg-white p-1 rounded-full shrink-0">
-                                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
-                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeIICEYPES9MipjfPilna9PuWxkCvMQFIZ1uvgeD73TTB3gKcmjVVD0ofv9n3lxUxnvKYCPfk7eKyE9UcibKO_mhdf-zSu8_KHLDVJ-4NivdIyKrBTkTP-t9YCYKw_x__oEpnzowVeoCS_BRvkRaFVan25KbDOnwYoJExtJsuJlui22skq5x0z8pvDjZ7oUY1qoEj0axN2juVMPM7CtCY0-WJfaCCvJsb0SiOkXNsWu5Si--_fNZ9WFcYSv-T2jZJxHp6GZbwymtk");'>
-                                    </div>
-                                </div>
-                                <div class="flex flex-1 flex-col justify-center">
-                                    <p class="text-white text-lg font-bold">Lámpara Colgante Aura Glass</p>
-                                    <p class="text-white/70 text-xs tracking-wide uppercase font-medium">Acabado Latón
-                                        Cepillado • SKU: LUX-A12</p>
-                                </div>
-                                <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12">
-                                    <button class="hover:text-accent-yellow transition-colors"><span
-                                            class="material-symbols-outlined text-xl">remove</span></button>
-                                    <span class="text-lg font-bold w-6 text-center">2</span>
-                                    <button class="hover:text-accent-yellow transition-colors"><span
-                                            class="material-symbols-outlined text-xl">add</span></button>
-                                </div>
-                                <div class="text-right pr-6">
-                                    <p class="text-xl font-black">$310.00</p>
-                                </div>
-                                <button class="text-white/40 hover:text-white transition-colors pr-4">
-                                    <span class="material-symbols-outlined">delete</span>
-                                </button>
-                            </div>
+
+                            <!-- Cart items list (rendered by JS) -->
+                            <div id="cart-items-list" class="flex flex-col gap-4 hidden"></div>
+
                             <div class="mt-4 flex items-center justify-between">
                                 <a href="index.html"
                                     class="flex items-center gap-2 text-primary font-bold hover:underline">
@@ -176,14 +120,16 @@
                                 </a>
                             </div>
                         </div>
+
+                        <!-- RIGHT: Order Summary -->
                         <aside class="w-full lg:w-[400px]">
                             <div class="bg-white border border-slate-200 rounded-lg p-8 shadow-2xl shadow-slate-200/50">
                                 <h2 class="text-2xl font-black text-slate-900 mb-6">Resumen del Pedido</h2>
-                                <div class="space-y-4 mb-8">
+                                <div id="order-summary-details" class="space-y-4 mb-8 hidden">
                                     <div
                                         class="flex justify-between text-slate-500 font-semibold text-sm uppercase tracking-wider">
                                         <span>Subtotal</span>
-                                        <span class="text-slate-900">$547.00</span>
+                                        <span id="summary-subtotal" class="text-slate-900">$0.00</span>
                                     </div>
                                     <div
                                         class="flex justify-between text-slate-500 font-semibold text-sm uppercase tracking-wider">
@@ -192,11 +138,16 @@
                                     </div>
                                     <div class="pt-6 border-t border-slate-100 flex justify-between items-center">
                                         <span class="text-xl font-bold text-slate-900">Total</span>
-                                        <span class="text-3xl font-black text-primary">$547.00</span>
+                                        <span id="summary-total" class="text-3xl font-black text-primary">$0.00</span>
                                     </div>
                                 </div>
-                                <button
-                                    class="w-full bg-dark-btn text-accent-yellow rounded-full py-5 flex items-center justify-center gap-3 font-black text-lg hover:opacity-90 transition-all shadow-lg">
+                                <!-- Empty summary placeholder -->
+                                <div id="order-summary-empty" class="py-6 text-center text-slate-400 text-sm mb-8">
+                                    Agrega productos para ver el resumen.
+                                </div>
+                                <button id="checkout-btn"
+                                    class="w-full rounded-full py-5 flex items-center justify-center gap-3 font-black text-lg transition-all shadow-lg bg-slate-300 text-slate-500 cursor-not-allowed"
+                                    disabled>
                                     Proceder al Pago
                                     <span class="material-symbols-outlined font-bold">arrow_forward</span>
                                 </button>
@@ -207,7 +158,426 @@
             </main>
         </div>
     </div>
-    <script type="module" src="js/app.js"></script>
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  MODAL 1 — Confirmación de Pedido                    ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <div id="modal-confirm" class="fixed inset-0 z-50 flex items-center justify-center p-4"
+        style="display:none!important">
+        <!-- Backdrop -->
+        <div id="modal-confirm-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onclick="cerrarModalConfirm()"></div>
+        <!-- Panel -->
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fadeIn">
+            <!-- Header -->
+            <div class="bg-primary px-8 py-6 flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent-yellow text-3xl">receipt_long</span>
+                <div>
+                    <h2 class="text-white text-xl font-black">Confirmar Pedido</h2>
+                    <p class="text-white/70 text-xs">Revisa tu pedido antes de continuar</p>
+                </div>
+                <button onclick="cerrarModalConfirm()" class="ml-auto text-white/60 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <!-- Product list -->
+            <div class="px-8 py-6 max-h-72 overflow-y-auto flex flex-col gap-3" id="confirm-items-list"></div>
+            <!-- Divider + Total -->
+            <div class="px-8 pb-2 border-t border-slate-100 pt-4 flex justify-between items-center">
+                <span class="text-slate-500 font-semibold text-sm uppercase tracking-wider">Total</span>
+                <span id="confirm-total" class="text-2xl font-black text-primary">$0.00</span>
+            </div>
+            <!-- Payment method selector -->
+            <div class="px-8 pt-5 pb-1">
+                <div class="flex items-center gap-4 flex-wrap">
+                    <span class="text-slate-600 font-bold text-sm whitespace-nowrap">Método de pago:</span>
+                    <!-- Visa -->
+                    <button type="button" data-method="visa" onclick="seleccionarPago(this)"
+                        class="pay-method-btn size-14 rounded-full border-2 border-slate-200 bg-white flex items-center justify-center transition-all hover:border-primary hover:shadow-md focus:outline-none"
+                        title="Visa">
+                        <!-- Visa SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-8 h-8">
+                            <rect width="48" height="48" rx="8" fill="#1A1F71" />
+                            <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle"
+                                font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white"
+                                letter-spacing="1">VISA</text>
+                        </svg>
+                    </button>
+                    <!-- Mastercard -->
+                    <button type="button" data-method="mastercard" onclick="seleccionarPago(this)"
+                        class="pay-method-btn size-14 rounded-full border-2 border-slate-200 bg-white flex items-center justify-center transition-all hover:border-primary hover:shadow-md focus:outline-none"
+                        title="Mastercard">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-8 h-8">
+                            <rect width="48" height="48" rx="24" fill="#252525" />
+                            <circle cx="18" cy="24" r="11" fill="#EB001B" />
+                            <circle cx="30" cy="24" r="11" fill="#F79E1B" />
+                            <path d="M24 15.3a11 11 0 0 1 0 17.4A11 11 0 0 1 24 15.3z" fill="#FF5F00" />
+                        </svg>
+                    </button>
+                    <!-- Nequi -->
+                    <button type="button" data-method="nequi" onclick="seleccionarPago(this)"
+                        class="pay-method-btn size-14 rounded-full border-2 border-slate-200 bg-white flex items-center justify-center transition-all hover:border-primary hover:shadow-md focus:outline-none"
+                        title="Nequi">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-8 h-8">
+                            <rect width="48" height="48" rx="24" fill="#6A0DAD" />
+                            <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle"
+                                font-family="Arial Black, sans-serif" font-size="11" font-weight="900"
+                                fill="white">nequi</text>
+                        </svg>
+                    </button>
+                </div>
+                <p id="pay-method-error" class="text-red-500 text-xs font-semibold mt-2 hidden">Por favor selecciona un
+                    método de pago.</p>
+            </div>
+            <!-- Actions -->
+            <div class="px-8 py-6 flex gap-3">
+                <button onclick="cerrarModalConfirm()"
+                    class="flex-1 rounded-full py-4 border-2 border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-all">
+                    Cancelar
+                </button>
+                <button id="confirm-pay-btn" onclick="confirmarCompra()"
+                    class="flex-1 rounded-full py-4 font-black text-base flex items-center justify-center gap-2 transition-all shadow-lg bg-slate-300 text-slate-500 cursor-not-allowed"
+                    disabled>
+                    <span class="material-symbols-outlined">payments</span>
+                    Confirmar Pago
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  MODAL 2 — Compra Exitosa                            ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <div id="modal-success" class="fixed inset-0 z-50 flex items-center justify-center p-4"
+        style="display:none!important">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div
+            class="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden text-center animate-fadeIn">
+            <!-- Confetti header -->
+            <div class="bg-gradient-to-br from-primary to-indigo-500 px-8 py-10 flex flex-col items-center gap-4">
+                <div class="size-20 rounded-full bg-white/15 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl text-accent-yellow"
+                        style="font-variation-settings:'FILL' 1">check_circle</span>
+                </div>
+                <h2 class="text-white text-3xl font-black">¡Compra exitosa!</h2>
+                <p class="text-white/80 text-sm">Tu pedido ha sido registrado correctamente.</p>
+            </div>
+            <div class="px-8 py-8 flex flex-col gap-4">
+                <p class="text-slate-500 text-sm">Gracias por tu compra en <span
+                        class="font-bold text-primary">Lumina</span>. Recibirás tu pedido pronto.</p>
+                <a href="index.html"
+                    class="w-full rounded-full py-4 bg-primary text-white font-black text-base flex items-center justify-center gap-2 hover:bg-primary/90 transition-all shadow-lg">
+                    <span class="material-symbols-outlined">storefront</span>
+                    Seguir Comprando
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.25s ease-out both;
+        }
+
+        /* Tailwind dark-btn class support for inline color */
+        .bg-dark-btn {
+            background-color: #1a1a1a;
+        }
+
+        .text-accent-yellow {
+            color: #fbbf24;
+        }
+    </style>
+
+    <!-- Cart module inline for carrito.html -->
+    <script>
+        // ── Session-aware cart helpers ─────────────────────────────────────────────
+        const _SESSION_KEY = 'lumina_session';
+        const _GUEST_KEY = 'lumina_carrito_guest';
+
+        function _getSession() {
+            try { return JSON.parse(localStorage.getItem(_SESSION_KEY)) || null; } catch { return null; }
+        }
+
+        function _getCartKey() {
+            const s = _getSession();
+            if (s && s.id) return `lumina_carrito_${s.id}`;
+            return _GUEST_KEY;
+        }
+
+        function leerCarrito() {
+            try { return JSON.parse(localStorage.getItem(_getCartKey())) || []; } catch { return []; }
+        }
+
+        function guardarCarrito(items) {
+            localStorage.setItem(_getCartKey(), JSON.stringify(items));
+        }
+
+        // Si NO hay sesión activa → limpiar carrito de invitado (estado base vacío)
+        (function () {
+            if (!_getSession()) {
+                localStorage.removeItem(_GUEST_KEY);
+            }
+        })();
+
+        // ── Render Cart ───────────────────────────────────────────────────────────
+        function renderCarrito() {
+            const items = leerCarrito();
+
+            const emptyState = document.getElementById('cart-empty-state');
+            const itemsList = document.getElementById('cart-items-list');
+            const countLabel = document.getElementById('cart-count-label');
+            const summaryEmpty = document.getElementById('order-summary-empty');
+            const summaryDetails = document.getElementById('order-summary-details');
+            const subtotalEl = document.getElementById('summary-subtotal');
+            const totalEl = document.getElementById('summary-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            if (items.length === 0) {
+                // Empty state
+                emptyState.classList.remove('hidden');
+                itemsList.classList.add('hidden');
+                itemsList.innerHTML = '';
+                summaryEmpty.classList.remove('hidden');
+                summaryDetails.classList.add('hidden');
+                countLabel.textContent = '(0 artículos)';
+                checkoutBtn.classList.remove('bg-dark-btn', 'text-accent-yellow', 'hover:opacity-90', 'cursor-pointer');
+                checkoutBtn.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+                checkoutBtn.disabled = true;
+            } else {
+                // Items present
+                emptyState.classList.add('hidden');
+                itemsList.classList.remove('hidden');
+                summaryEmpty.classList.add('hidden');
+                summaryDetails.classList.remove('hidden');
+
+                const totalCount = items.reduce((s, i) => s + i.cantidad, 0);
+                countLabel.textContent = `(${totalCount} artículo${totalCount !== 1 ? 's' : ''})`;
+
+                const total = items.reduce((s, i) => s + i.precio * i.cantidad, 0);
+                subtotalEl.textContent = `$${total.toFixed(2)}`;
+                totalEl.textContent = `$${total.toFixed(2)}`;
+
+                // Enable checkout button
+                checkoutBtn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+                checkoutBtn.classList.add('bg-dark-btn', 'text-accent-yellow', 'hover:opacity-90', 'cursor-pointer');
+                checkoutBtn.disabled = false;
+
+                // Render items
+                itemsList.innerHTML = items.map(item => `
+                    <div class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20"
+                         data-item-id="${item.id}">
+                        <div class="bg-white p-1 rounded-full shrink-0">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-20"
+                                 style="background-image: url('${item.imagen || ''}');${!item.imagen ? 'background-color:#e2e8f0;' : ''}">
+                                ${!item.imagen ? '<span class="material-symbols-outlined text-slate-400 flex items-center justify-center h-full text-3xl">image</span>' : ''}
+                            </div>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center min-w-0">
+                            <p class="text-white text-lg font-bold truncate">${item.nombre}</p>
+                            <p class="text-white/70 text-xs tracking-wide uppercase font-medium">SKU: ${item.id}</p>
+                        </div>
+                        <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12 shrink-0">
+                            <button class="hover:text-accent-yellow transition-colors btn-restar" data-id="${item.id}">
+                                <span class="material-symbols-outlined text-xl">remove</span>
+                            </button>
+                            <span class="text-lg font-bold w-6 text-center qty-display">${item.cantidad}</span>
+                            <button class="hover:text-accent-yellow transition-colors btn-sumar" data-id="${item.id}">
+                                <span class="material-symbols-outlined text-xl">add</span>
+                            </button>
+                        </div>
+                        <div class="text-right pr-4 shrink-0">
+                            <p class="text-xl font-black">$${(item.precio * item.cantidad).toFixed(2)}</p>
+                        </div>
+                        <button class="text-white/40 hover:text-white transition-colors pr-2 shrink-0 btn-eliminar" data-id="${item.id}">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
+                `).join('');
+
+                // Bind quantity/delete buttons
+                itemsList.querySelectorAll('.btn-restar').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        const items2 = leerCarrito();
+                        const found = items2.find(i => String(i.id) === String(id));
+                        if (found) {
+                            found.cantidad -= 1;
+                            if (found.cantidad <= 0) {
+                                const idx = items2.indexOf(found);
+                                items2.splice(idx, 1);
+                            }
+                            guardarCarrito(items2);
+                            renderCarrito();
+                        }
+                    });
+                });
+
+                itemsList.querySelectorAll('.btn-sumar').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        const items2 = leerCarrito();
+                        const found = items2.find(i => String(i.id) === String(id));
+                        if (found) {
+                            found.cantidad += 1;
+                            guardarCarrito(items2);
+                            renderCarrito();
+                        }
+                    });
+                });
+
+                itemsList.querySelectorAll('.btn-eliminar').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        const items2 = leerCarrito().filter(i => String(i.id) !== String(id));
+                        guardarCarrito(items2);
+                        renderCarrito();
+                    });
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCarrito);
+
+        // ── Modal helpers ─────────────────────────────────────────────────────────
+
+        let metodoPagoSeleccionado = null;
+
+        function seleccionarPago(botonClick) {
+            metodoPagoSeleccionado = botonClick.getAttribute('data-method');
+
+            // UI updates
+            const botones = document.querySelectorAll('.pay-method-btn');
+            botones.forEach(btn => {
+                btn.classList.remove('border-primary', 'ring-2', 'ring-primary/50', 'shadow-md');
+                btn.classList.add('border-slate-200');
+            });
+
+            botonClick.classList.remove('border-slate-200');
+            botonClick.classList.add('border-primary', 'ring-2', 'ring-primary/50', 'shadow-md');
+
+            // Enable pay button
+            const payBtn = document.getElementById('confirm-pay-btn');
+            payBtn.disabled = false;
+            payBtn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+            payBtn.classList.add('bg-dark-btn', 'text-accent-yellow', 'hover:opacity-90', 'cursor-pointer');
+
+            // Hide error message
+            document.getElementById('pay-method-error').classList.add('hidden');
+        }
+
+        function abrirModalConfirm() {
+            const items = leerCarrito();
+            if (!items.length) return;
+
+            // Reset payment selection
+            metodoPagoSeleccionado = null;
+            document.querySelectorAll('.pay-method-btn').forEach(btn => {
+                btn.classList.remove('border-primary', 'ring-2', 'ring-primary/50', 'shadow-md');
+                btn.classList.add('border-slate-200');
+            });
+
+            const payBtn = document.getElementById('confirm-pay-btn');
+            payBtn.disabled = true;
+            payBtn.classList.remove('bg-dark-btn', 'text-accent-yellow', 'hover:opacity-90', 'cursor-pointer');
+            payBtn.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+
+            document.getElementById('pay-method-error').classList.add('hidden');
+
+            // Populate items list
+            const listEl = document.getElementById('confirm-items-list');
+            listEl.innerHTML = items.map(item => `
+                <div class="flex items-center gap-4 bg-slate-50 rounded-xl p-3">
+                    <div class="size-12 rounded-full bg-primary/10 flex-shrink-0 overflow-hidden">
+                        ${item.imagen
+                    ? `<img src="${item.imagen}" alt="${item.nombre}" class="w-full h-full object-cover rounded-full" />`
+                    : `<span class="material-symbols-outlined text-primary flex items-center justify-center h-full text-2xl">image</span>`
+                }
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-slate-800 font-bold text-sm truncate">${item.nombre}</p>
+                        <p class="text-slate-400 text-xs">$${Number(item.precio).toFixed(2)} × ${item.cantidad} uds.</p>
+                    </div>
+                    <p class="text-primary font-black text-sm whitespace-nowrap">$${(item.precio * item.cantidad).toFixed(2)}</p>
+                </div>
+            `).join('');
+
+            // Set total
+            const total = items.reduce((s, i) => s + i.precio * i.cantidad, 0);
+            document.getElementById('confirm-total').textContent = `$${total.toFixed(2)}`;
+
+            // Show modal
+            const modal = document.getElementById('modal-confirm');
+            modal.style.removeProperty('display');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarModalConfirm() {
+            const modal = document.getElementById('modal-confirm');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function confirmarCompra() {
+            if (!metodoPagoSeleccionado) {
+                document.getElementById('pay-method-error').classList.remove('hidden');
+                return;
+            }
+
+            // Disable button to avoid double clicks
+            const btn = document.getElementById('confirm-pay-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined" style="animation:spin 1s linear infinite">progress_activity</span>&nbsp;Procesando...';
+
+            setTimeout(() => {
+                // Clear the cart
+                guardarCarrito([]);
+
+                // Close confirm modal
+                cerrarModalConfirm();
+
+                // Show success modal
+                const successModal = document.getElementById('modal-success');
+                successModal.style.removeProperty('display');
+                successModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+
+                // Re-render the cart (will show empty state)
+                renderCarrito();
+            }, 900);
+        }
+
+        // Wire checkout button AFTER DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('checkout-btn').addEventListener('click', abrirModalConfirm);
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') cerrarModalConfirm();
+        });
+    </script>
+
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </body>
 
 </html>
