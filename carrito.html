@@ -301,6 +301,10 @@
         }
     </style>
 
+    <!-- Supabase and API scripts setup -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/api.js"></script>
+
     <!-- Cart module inline for carrito.html -->
     <script>
         // ── Session-aware cart helpers ─────────────────────────────────────────────
@@ -531,9 +535,19 @@
             document.body.style.overflow = '';
         }
 
-        function confirmarCompra() {
+        async function confirmarCompra() {
             if (!metodoPagoSeleccionado) {
                 document.getElementById('pay-method-error').classList.remove('hidden');
+                return;
+            }
+
+            const items = leerCarrito();
+            if (!items.length) return;
+
+            const session = _getSession();
+            if (!session || !session.id) {
+                alert("Por favor inicia sesión para finalizar la compra.");
+                window.location.href = "login.html";
                 return;
             }
 
@@ -542,22 +556,78 @@
             btn.disabled = true;
             btn.innerHTML = '<span class="material-symbols-outlined" style="animation:spin 1s linear infinite">progress_activity</span>&nbsp;Procesando...';
 
-            setTimeout(() => {
-                // Clear the cart
-                guardarCarrito([]);
+            try {
+                // Calculate total
+                const total = items.reduce((s, i) => s + i.precio * i.cantidad, 0);
 
-                // Close confirm modal
+                // 1. Crear registro en tabla 'venta'
+                const { data: ventaData, error: ventaError } = await supabaseClient
+                    .from('venta')
+                    .insert([{
+                        id_cliente: session.id,
+                        fecha: new Date().toISOString(),
+                        total: total,
+                        estado: 'PAGADA',
+                        metodo_pago: metodoPagoSeleccionado.toUpperCase() // VISA, MASTERCARD, NEQUI
+                    }])
+                    .select()
+                    .single();
+
+                if (ventaError) throw ventaError;
+
+                const idVenta = ventaData.id_venta;
+
+                // 2. Crear registros en tabla 'detalle_venta'
+                const detalles = items.map(item => ({
+                    id_venta: idVenta,
+                    id_producto: item.id,
+                    cantidad: item.cantidad,
+                    precio_unitario: item.precio,
+                    subtotal: item.precio * item.cantidad
+                }));
+
+                const { error: detallesError } = await supabaseClient
+                    .from('detalle_venta')
+                    .insert(detalles);
+
+                if (detallesError) throw detallesError;
+
+                // 3. Actualizar el stock en la tabla 'producto'
+                for (const item of items) {
+                    const { data: currentProduct, error: getError } = await supabaseClient
+                        .from('producto')
+                        .select('stock')
+                        .eq('id_producto', item.id)
+                        .single();
+
+                    if (!getError && currentProduct) {
+                        const newStock = Math.max(0, currentProduct.stock - item.cantidad);
+                        await supabaseClient
+                            .from('producto')
+                            .update({ stock: newStock })
+                            .eq('id_producto', item.id);
+                    }
+                }
+
+                // 4. Finalizar compra limpiando carrito y mostrando UI
+                guardarCarrito([]);
                 cerrarModalConfirm();
 
-                // Show success modal
                 const successModal = document.getElementById('modal-success');
                 successModal.style.removeProperty('display');
                 successModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
 
-                // Re-render the cart (will show empty state)
                 renderCarrito();
-            }, 900);
+
+            } catch (error) {
+                console.error("Error al registrar la compra en Supabase:", error);
+                alert("Hubo un error al procesar el pago. Por favor intenta nuevamente.");
+
+                // Revertir botón
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined">payments</span> Confirmar Pago';
+            }
         }
 
         // Wire checkout button AFTER DOM is ready
