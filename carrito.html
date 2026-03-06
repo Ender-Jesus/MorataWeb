@@ -320,7 +320,7 @@
         })();
 
         // ── Render Cart ───────────────────────────────────────────────────────────
-        function renderCarrito() {
+        async function renderCarrito() {
             const items = leerCarrito();
 
             const emptyState = document.getElementById('cart-empty-state');
@@ -344,6 +344,24 @@
                 checkoutBtn.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
                 checkoutBtn.disabled = true;
             } else {
+                // Fetch current stock from Supabase for all items in cart
+                let stockMap = {};
+                try {
+                    const ids = items.map(i => i.id);
+                    const { data: stockData, error } = await supabaseClient
+                        .from('producto')
+                        .select('id_producto, stock')
+                        .in('id_producto', ids);
+
+                    if (stockData) {
+                        stockData.forEach(p => {
+                            stockMap[p.id_producto] = p.stock;
+                        });
+                    }
+                } catch (err) {
+                    console.error("Error fetching real-time stock:", err);
+                }
+
                 // Items present
                 emptyState.classList.add('hidden');
                 itemsList.classList.remove('hidden');
@@ -363,7 +381,11 @@
                 checkoutBtn.disabled = false;
 
                 // Render items
-                itemsList.innerHTML = items.map(item => `
+                itemsList.innerHTML = items.map(item => {
+                    const stockActual = stockMap[item.id] !== undefined ? stockMap[item.id] : (item.stock || 0);
+                    const isAgotado = stockActual <= 0;
+
+                    return `
                     <div class="flex items-center gap-6 bg-primary p-5 rounded-full text-white shadow-xl shadow-primary/20"
                          data-item-id="${item.id}">
                         <div class="bg-white p-1 rounded-full shrink-0">
@@ -374,14 +396,16 @@
                         </div>
                         <div class="flex flex-1 flex-col justify-center min-w-0">
                             <p class="text-white text-lg font-bold truncate">${item.nombre}</p>
-                            <p class="text-white/70 text-xs tracking-wide uppercase font-medium">SKU: ${item.id}</p>
+                            <p class="text-white/70 text-[10px] tracking-wide uppercase font-medium">
+                                SKU: ${item.id} | <span class="${isAgotado ? 'text-red-400' : 'text-emerald-400'} font-bold">STOCK: ${isAgotado ? 'AGOTADO' : stockActual}</span>
+                            </p>
                         </div>
                         <div class="flex items-center gap-4 px-4 bg-white/10 rounded-full h-12 shrink-0">
                             <button class="hover:text-accent-yellow transition-colors btn-restar" data-id="${item.id}">
                                 <span class="material-symbols-outlined text-xl">remove</span>
                             </button>
                             <span class="text-lg font-bold w-6 text-center qty-display">${item.cantidad}</span>
-                            <button class="hover:text-accent-yellow transition-colors btn-sumar" data-id="${item.id}">
+                            <button class="hover:text-accent-yellow transition-colors btn-sumar" data-id="${item.id}" ${item.cantidad >= stockActual ? 'disabled style="opacity:0.3;cursor:not-allowed"' : ''}>
                                 <span class="material-symbols-outlined text-xl">add</span>
                             </button>
                         </div>
@@ -392,7 +416,7 @@
                             <span class="material-symbols-outlined">delete</span>
                         </button>
                     </div>
-                `).join('');
+                `}).join('');
 
                 // Bind quantity/delete buttons
                 itemsList.querySelectorAll('.btn-restar').forEach(btn => {

@@ -55,7 +55,7 @@ async function init() {
                                 <span class="heart-icon material-symbols-outlined text-[20px]">favorite</span>
                             </button>
                             <div class="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <button data-add-cart="${p.id_producto}" data-product='${JSON.stringify({ id: p.id_producto, nombre: p.nombre, precio: p.precio, imagen: p.imagen_url || "" }).replace(/'/g, "&#39;")}' class="add-to-cart-btn flex items-center justify-center size-10 rounded-full bg-accent text-primary shadow-lg hover:bg-yellow-400 transition-colors">
+                                <button data-add-cart="${p.id_producto}" data-product='${JSON.stringify({ id: p.id_producto, nombre: p.nombre, precio: p.precio, imagen: p.imagen_url || "", stock: p.stock }).replace(/'/g, "&#39;")}' class="add-to-cart-btn flex items-center justify-center size-10 rounded-full bg-accent text-primary shadow-lg hover:bg-yellow-400 transition-colors">
                                     <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
                                 </button>
                             </div>
